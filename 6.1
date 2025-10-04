@@ -1,0 +1,173 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Задание 1
+            Console.Write("Задание 1: Введите A и B (A < B): ");
+            int A1 = int.Parse(Console.ReadLine());
+            int B1 = int.Parse(Console.ReadLine());
+            int count1 = B1 - A1 + 1;
+            Console.Write("Числа по возрастанию: ");
+            for (int i = A1; i <= B1; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine($"\nКоличество: {count1}");
+
+            // Задание 2
+            Console.Write("Задание 2: Введите A и B (A < B): ");
+            int A2 = int.Parse(Console.ReadLine());
+            int B2 = int.Parse(Console.ReadLine());
+            int count2 = B2 - A2 - 1;
+            Console.Write("Числа по убыванию: ");
+            for (int i = B2 - 1; i > A2; i--)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine($"\nКоличество: {count2}");
+
+            // Задание 3
+            Console.Write("Задание 3: Введите вещественное число A и целое N (< 0): ");
+            double A3 = double.Parse(Console.ReadLine());
+            int N3 = int.Parse(Console.ReadLine());
+            double result3 = 1.0;
+            for (int i = 0; i < Math.Abs(N3); i++)
+            {
+                result3 *= A3;
+            }
+            if (N3 < 0)
+                result3 = 1.0 / result3;
+            Console.WriteLine($"A^N: {result3}");
+
+            // Задание 4
+            Console.Write("Задание 4: Введите вещественное число A и целое N (< 0): ");
+            double A4 = double.Parse(Console.ReadLine());
+            int N4 = int.Parse(Console.ReadLine());
+            double power4 = 1.0;
+            Console.Write("Степени: ");
+            for (int i = 1; i <= Math.Abs(N4); i++)
+            {
+                power4 *= A4;
+                Console.Write(power4 + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 5
+            Console.Write("Задание 5: Введите вещественное число A и целое N (> 0): ");
+            double A5 = double.Parse(Console.ReadLine());
+            int N5 = int.Parse(Console.ReadLine());
+            double sum5a = 1.0, sum5b = 1.0, power5 = 1.0;
+            for (int i = 1; i <= N5; i++)
+            {
+                power5 *= A5;
+                sum5a += power5;
+                sum5b += (i % 2 == 1 ? -power5 : power5);
+            }
+            Console.WriteLine($"Сумма 1 + A + A^2 + ... + A^N: {sum5a}");
+            Console.WriteLine($"Сумма 1 - A + A^2 - ... + (-1)^N * A^N: {sum5b}");
+
+            // Задание 6
+            Console.Write("Задание 6: Введите целые числа N и M (> 1): ");
+            int N6 = int.Parse(Console.ReadLine());
+            int M6 = int.Parse(Console.ReadLine());
+            int K6 = 1;
+            while (3 * K6 <= N6)
+            {
+                K6++;
+            }
+            Console.WriteLine($"Наименьшее K: {K6}, 3K: {3 * K6}");
+
+            // Задание 7
+            Console.Write("Задание 7: Введите целые числа N и M (> 1): ");
+            int N7 = int.Parse(Console.ReadLine());
+            int M7 = int.Parse(Console.ReadLine());
+            int K7 = 1;
+            while (3 * (K7 + 1) < N7)
+            {
+                K7++;
+            }
+            Console.WriteLine($"Наибольшее K: {K7}, 3K: {3 * K7}");
+
+            // Задание 8
+            Console.Write("Задание 8: Введите вещественное число A (> 1): ");
+            double A8 = double.Parse(Console.ReadLine());
+            double sum8 = 0.0;
+            int N8 = 0;
+            while (sum8 <= A8)
+            {
+                N8++;
+                sum8 += 1.0 / N8;
+            }
+            Console.WriteLine($"Наименьшее N: {N8}, Сумма: {sum8}");
+
+            // Задание 9
+            Console.Write("Задание 9: Введите целое число N (< 0): ");
+            int N9 = int.Parse(Console.ReadLine());
+            double product9 = 1.0;
+            for (int i = 1; i <= Math.Abs(N9); i++)
+            {
+                product9 *= i;
+            }
+            if (N9 < 0)
+                product9 = 1.0 / product9;
+            Console.WriteLine($"Произведение: {product9}");
+
+            // Задание 10
+            Console.Write("Задание 10: Введите целое число N (> 0): ");
+            int N10 = int.Parse(Console.ReadLine());
+            double product10 = 2.0;
+            for (int i = 2; i <= N10; i++)
+            {
+                product10 *= (i % 2 == 0 ? 1.0 / i : i);
+            }
+            Console.WriteLine($"Произведение: {product10}");
+
+            // Задание 11
+            Console.Write("Задание 11: Введите вещественное число X и целое N (> 0): ");
+            double X11 = double.Parse(Console.ReadLine());
+            int N11 = int.Parse(Console.ReadLine());
+            double sum11 = 1.0, factorial11 = 1.0, power11 = 1.0;
+            for (int i = 1; i <= N11; i++)
+            {
+                power11 *= X11;
+                factorial11 *= i;
+                sum11 += power11 / factorial11;
+            }
+            Console.WriteLine($"Сумма: {sum11}");
+
+            // Задание 12
+            Console.Write("Задание 12: Введите вещественное число X и целое N (> 0): ");
+            double X12 = double.Parse(Console.ReadLine());
+            int N12 = int.Parse(Console.ReadLine());
+            double sum12 = X12, power12 = X12;
+            for (int i = 1; i <= N12; i++)
+            {
+                power12 *= X12 * X12;
+                sum12 += Math.Pow(-1, i) * power12 / (2 * i + 1);
+            }
+            Console.WriteLine($"Сумма: {sum12}");
+
+            // Задание 13
+            Console.Write("Задание 13: Введите вещественное число X и целое N (> 0): ");
+            double X13 = double.Parse(Console.ReadLine());
+            int N13 = int.Parse(Console.ReadLine());
+            double sum13 = 1.0, power13 = 1.0;
+            for (int i = 1; i <= N13; i++)
+            {
+                power13 *= X13 * X13;
+                sum13 += Math.Pow(-1, i) * power13 / (2 * i);
+            }
+            Console.WriteLine($"Сумма: {sum13}");
+
+            Console.ReadKey();
+        }
+    }
+}
