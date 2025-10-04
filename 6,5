@@ -1,0 +1,278 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Задание 1
+            Console.Write("Задание 1: Введите вещественное число A и целое N: ");
+            double A1 = double.Parse(Console.ReadLine());
+            int N1 = int.Parse(Console.ReadLine());
+            double result1 = Math.Pow(A1, N1);
+            Console.WriteLine($"A^N: {result1}");
+
+            // Задание 2
+            Console.Write("Задание 2: Введите целое N (>= 0): ");
+            int N2 = int.Parse(Console.ReadLine());
+            double factorial2 = 1.0;
+            for (int i = 1; i <= N2; i++)
+            {
+                factorial2 *= i;
+            }
+            Console.WriteLine($"Факториал: {factorial2}");
+
+            // Задание 3
+            Console.Write("Задание 3: Введите целое N (> 0): ");
+            int N3 = int.Parse(Console.ReadLine());
+            long sum3 = 0;
+            for (int i = 1; i <= N3; i++)
+            {
+                sum3 += (long)i * i;
+            }
+            Console.WriteLine($"Сумма квадратов: {sum3}");
+
+            // Задание 4
+            Console.Write("Задание 4: Введите целое N (> 0): ");
+            int N4 = int.Parse(Console.ReadLine());
+            long sum4 = 0;
+            for (int i = 1; i <= N4; i++)
+            {
+                sum4 += (i % 2 == 0) ? (long)i * i : (long)i * i * i;
+            }
+            Console.WriteLine($"Сумма квадратов (чётных) и кубов (нечётных): {sum4}");
+
+            // Задание 5
+            Console.Write("Задание 5: Введите целое N (> 0): ");
+            int N5 = int.Parse(Console.ReadLine());
+            Console.Write("Числа: ");
+            for (int i = 1; i <= N5; i++)
+            {
+                int sumDigits = SumOfDigits(i);
+                if (i % 3 == 0 && i % 5 != 0 && sumDigits % 3 == 0 && sumDigits % 5 != 0)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+            Console.WriteLine();
+
+            // Задание 6
+            Console.Write("Задание 6: Введите целое N (> 0): ");
+            int N6 = int.Parse(Console.ReadLine());
+            Console.Write("Числа, делящиеся на 5: ");
+            for (int i = 1; i <= N6; i++)
+            {
+                if (i % 5 == 0)
+                    Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 7
+            Console.Write("Задание 7: Введите целое N (> 0): ");
+            int N7 = int.Parse(Console.ReadLine());
+            bool isPowerOfTwo = (N7 & (N7 - 1)) == 0 && N7 > 0;
+            Console.WriteLine($"{N7} {(isPowerOfTwo ? "является" : "не является")} степенью двойки");
+
+            // Задание 8
+            Console.Write("Задание 8: Введите целое N (> 1): ");
+            int N8 = int.Parse(Console.ReadLine());
+            Console.Write($"Простые множители числа {N8}: ");
+            int num8 = N8;
+            for (int i = 2; i * i <= num8; i++)
+            {
+                while (num8 % i == 0)
+                {
+                    Console.Write(i + " ");
+                    num8 /= i;
+                }
+            }
+            if (num8 > 1) Console.Write(num8);
+            Console.WriteLine();
+
+            // Задание 9
+            Console.Write("Задание 9: Введите целое X (>= 2): ");
+            int X9 = int.Parse(Console.ReadLine());
+            Console.Write("Совершенные числа: ");
+            for (int i = 2; i <= X9; i++)
+            {
+                int sumDivisors = 1;
+                for (int j = 2; j * j <= i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        sumDivisors += j;
+                        if (j * j != i) sumDivisors += i / j;
+                    }
+                }
+                if (sumDivisors == i)
+                    Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 10
+            Console.Write("Задание 10: Введите целые m и n (m <= n): ");
+            int m10 = int.Parse(Console.ReadLine());
+            int n10 = int.Parse(Console.ReadLine());
+            long sum10 = 0;
+            for (int i = m10; i <= n10; i++)
+            {
+                sum10 += (long)i * i;
+            }
+            Console.WriteLine($"Сумма квадратов: {sum10}");
+
+            // Задание 11
+            Console.Write("Задание 11: Введите целые m и n (m <= n): ");
+            int m11 = int.Parse(Console.ReadLine());
+            int n11 = int.Parse(Console.ReadLine());
+            long sum11 = 0;
+            for (int i = m11; i <= n11; i++)
+            {
+                if (i % 2 != 0)
+                    sum11 += (long)i * i;
+            }
+            Console.WriteLine($"Сумма квадратов нечётных чисел: {sum11}");
+
+            // Задание 12
+            Console.Write("Задание 12: Произведение нечётных чисел, делящихся на 7, от -80 до 80: ");
+            long product12 = 1;
+            bool hasNumbers12 = false;
+            for (int i = -80; i <= 80; i++)
+            {
+                if (i % 2 != 0 && i % 7 == 0)
+                {
+                    product12 *= i;
+                    hasNumbers12 = true;
+                }
+            }
+            Console.WriteLine(hasNumbers12 ? product12.ToString() : "Таких чисел нет");
+
+            // Задание 13
+            Console.Write("Задание 13: Сумма положительных чисел, делящихся на 9, от -10 до 10: ");
+            int sum13 = 0;
+            for (int i = -10; i <= 10; i++)
+            {
+                if (i > 0 && i % 9 == 0)
+                    sum13 += i;
+            }
+            Console.WriteLine(sum13);
+
+            // Задание 14
+            Console.Write("Задание 14: Введите целое n (100 <= n <= 800): ");
+            int n14 = int.Parse(Console.ReadLine());
+            int count14 = 999 - n14;
+            Console.WriteLine($"Количество трёхзначных чисел, больших {n14}: {count14}");
+
+            // Задание 15
+            Console.Write("Задание 15: Введите целое n (> 1): ");
+            int n15 = int.Parse(Console.ReadLine());
+            Console.Write($"Числа, меньшие {n15} и взаимно простые с ним: ");
+            for (int i = 1; i < n15; i++)
+            {
+                if (GCD(i, n15) == 1)
+                    Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 16
+            Console.Write("Задание 16: Введите целые p и q: ");
+            int p16 = int.Parse(Console.ReadLine());
+            int q16 = int.Parse(Console.ReadLine());
+            Console.Write($"Делители числа {q16}, взаимно простые с {p16}: ");
+            for (int i = 1; i <= Math.Abs(q16); i++)
+            {
+                if (q16 % i == 0 && GCD(i, Math.Abs(p16)) == 1)
+                    Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 17
+            Console.Write("Задание 17: Введите целое n (> 1): ");
+            int n17 = int.Parse(Console.ReadLine());
+            Console.Write($"Простые делители числа {n17}: ");
+            int num17 = Math.Abs(n17);
+            for (int i = 2; i * i <= num17; i++)
+            {
+                while (num17 % i == 0)
+                {
+                    Console.Write(i + " ");
+                    num17 /= i;
+                }
+            }
+            if (num17 > 1) Console.Write(num17);
+            Console.WriteLine();
+
+            // Задание 18
+            Console.Write("Задание 18: Первые 100 простых чисел: ");
+            List<int> primes = new List<int>();
+            int num18 = 2;
+            while (primes.Count < 100)
+            {
+                if (IsPrime(num18))
+                    primes.Add(num18);
+                num18++;
+            }
+            Console.WriteLine(string.Join(" ", primes));
+
+            // Задание 19
+            Console.Write("Задание 19: Введите целые m и n (m <= n): ");
+            int m19 = int.Parse(Console.ReadLine());
+            int n19 = int.Parse(Console.ReadLine());
+            long product19 = 1;
+            bool hasNumbers19 = false;
+            for (int i = m19; i <= n19; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    product19 *= (long)i * i;
+                    hasNumbers19 = true;
+                }
+            }
+            Console.WriteLine(hasNumbers19 ? $"Произведение квадратов чётных чисел: {product19}" : "Чётных чисел нет");
+
+            // Задание 20
+            Console.Write("Задание 20: Введите целое n (> 0): ");
+            int n20 = int.Parse(Console.ReadLine());
+            long sum20 = 0;
+            for (int i = 1; i <= n20; i++)
+            {
+                long term = i;
+                for (int j = i + 1; j <= 2 * i; j++)
+                {
+                    term *= j;
+                }
+                sum20 += term;
+            }
+            Console.WriteLine($"Сумма: {sum20}");
+
+            // Задание 21
+            Console.Write("Задание 21: Введите целое N (> 0): ");
+            int N21 = int.Parse(Console.ReadLine());
+            long diff21 = 0;
+            int count21 = 0;
+            for (int i = 1; count21 < N21; i += 2)
+            {
+                long cube = (long)i * i * i;
+                diff21 = (count21 == 0) ? cube : diff21 - cube;
+                count21++;
+            }
+            Console.WriteLine($"Разность кубов: {diff21}");
+
+            // Задание 22
+            Console.Write("Задание 22: Введите целые m и n (m <= n): ");
+            int m22 = int.Parse(Console.ReadLine());
+            int n22 = int.Parse(Console.ReadLine());
+            long sum22 = 0;
+            for (int i = m22; i <= n22; i++)
+            {
+                sum22 += i;
+            }
+            long squareDiff22 = (n22 - m22 + 1) * sum22 * sum22;
+            Console.WriteLine($"Квадрат разности: {squareDiff22}");
+
+            Console.ReadKey();
+        }
+    }
+}
