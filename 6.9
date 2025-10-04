@@ -1,0 +1,183 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+         // 6
+            double xStart = -3, xEnd = 2.5, h = 1.1;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f;
+                if (x > 0)
+                {
+                    f = 0;
+                    for (int k = 1; k <= 8; k++)
+                        f += Math.Pow(-1, k) * Math.Pow(x, k) / Factorial(k);
+                }
+                else
+                {
+                    f = Math.Tan(Math.PI * x);
+                }
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+
+            // 7
+            double xStart = 0, xEnd = 4, h = 0.4;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double u;
+                if (x <= 1.5) u = x * x - x + 1;
+                else if (x <= 2.5) u = Math.Atan(x);
+                else u = Math.Sin(x - 1) + Math.Cos(x + 1);
+
+                double f = 1.5 + Math.Log(Math.Abs(Math.Sin(u)));
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+            
+            // 8
+            double xStart = -1, xEnd = 2, h = 0.15;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f;
+                if (x > 0)
+                    f = Math.Log(Math.Sqrt(x));
+                else
+                {
+                    f = 0;
+                    for (int k = 2; k <= 7; k++)
+                        f += Math.Pow(x, k) / Factorial(k);
+                }
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+         
+            // 9
+            double xStart = 0.5, xEnd = 2, h = 0.15;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f = 0;
+                for (int k = 1; k <= 8; k++)
+                    f += Math.Pow(-3, k) * Math.Pow(x, k) / Factorial(k);
+
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+         
+            // 10
+            double xStart = -2, xEnd = 1, h = 0.5;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f;
+                if (x > 0)
+                {
+                    f = 0;
+                    for (int k = 3; k <= 9; k++)
+                        f += Math.Pow(x, k);
+                }
+                else
+                {
+                    f = Math.Pow(2 - x, -x);
+                }
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+   
+            // 11
+            double xStart = -1, xEnd = 1, h = 0.25;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double u = x * x - Math.Asin(x * x);
+                double f;
+                if (x > Math.PI)
+                    f = Math.Pow(Math.Abs(Math.Cos(x)), u);
+                else
+                    f = Math.Pow(u, Math.Sin(x));
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+      
+            // 12
+            double xStart = 1, xEnd = 3, h = 0.2;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double u;
+                if (x <= 2) u = (x + 1) / (3 - x);
+                else u = Math.Sin(x - 1) * Math.Cos(x + 1);
+
+                double f = Math.Exp(u);
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+  
+            // 13
+            double xStart = -1, xEnd = 2, h = 0.2;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f;
+                if (x > 0)
+                {
+                    f = 0;
+                    for (int k = 1; k <= 7; k++)
+                        f += Math.Pow(x, k) / Factorial(k);
+                }
+                else
+                {
+                    f = Math.Atan(Math.PI * x);
+                }
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+   
+            // 14
+            double xStart = 1, xEnd = 2, h = 0.1;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f = 0;
+                for (int k = 1; k <= 7; k++)
+                    f += Math.Pow(x, 2 * k) / Factorial(2 * k);
+
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+     
+            // 15
+            double xStart = -5, xEnd = 5, h = 0.5;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double u;
+                if (x < -3) u = x * x - x + 1;
+                else if (x <= 3) u = Math.Atan(x);
+                else u = Math.Sin(x - 1) + Math.Cos(x + 1);
+
+                double f = 2.5 * x * x * Math.Log10(8 - Math.Sin(u));
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+
+            // 16
+            double xStart = -3, xEnd = 2.3, h = 0.25;
+            for (double x = xStart; x <= xEnd + 1e-9; x += h)
+            {
+                double f;
+                if (x > 0)
+                {
+                    f = 0;
+                    for (int k = 2; k <= 5; k++)
+                        f += Math.Pow(x, k);
+                }
+                else
+                {
+                    f = Math.Pow(x, 3.5) * Math.Sin(x);
+                }
+                Console.WriteLine($"x = {x:F2}\t f(x) = {f:F6}");
+            }
+
+        }
+
+        static long Factorial(int n)
+        {
+            long res = 1;
+            for (int i = 2; i <= n; i++) res *= i;
+            return res;
+        }
+    }
+}
