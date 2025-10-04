@@ -1,0 +1,223 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Задание 15
+            Console.Write("Задание 15: Введите вещественное число X (|X| < 1) и целое N (> 0): ");
+            double X15 = double.Parse(Console.ReadLine());
+            int N15 = int.Parse(Console.ReadLine());
+            double sum15 = X15, power15 = X15;
+            for (int i = 1; i <= N15; i++)
+            {
+                power15 *= X15 * X15;
+                sum15 += Math.Pow(-1, i) * power15 / (2 * i + 1);
+            }
+            Console.WriteLine($"Приближённое значение arctg(X): {sum15}");
+            Console.WriteLine($"Точное значение arctg(X): {Math.Atan(X15)}");
+
+            // Задание 16
+            Console.Write("Задание 16: Введите целое N (> 2) и вещественные числа A, B (A < B): ");
+            int N16 = int.Parse(Console.ReadLine());
+            double A16 = double.Parse(Console.ReadLine());
+            double B16 = double.Parse(Console.ReadLine());
+            double H16 = (B16 - A16) / (N16 - 1);
+            Console.Write($"Шаг H: {H16}\nТочки: ");
+            for (int i = 0; i < N16; i++)
+            {
+                Console.Write((A16 + i * H16) + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 17
+            Console.Write("Задание 17: Введите целое N (> 2) и вещественные числа A, B (A < B): ");
+            int N17 = int.Parse(Console.ReadLine());
+            double A17 = double.Parse(Console.ReadLine());
+            double B17 = double.Parse(Console.ReadLine());
+            double H17 = (B17 - A17) / (N17 - 1);
+            Console.Write("Значения F(X): ");
+            for (int i = 0; i < N17; i++)
+            {
+                double x = A17 + i * H17;
+                Console.Write((1 - Math.Sin(x)) + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 18
+            Console.Write("Задание 18: Введите вещественное число D (> 0): ");
+            double D18 = double.Parse(Console.ReadLine());
+            double prev18 = 2.0, current18 = 2.0;
+            int K18 = 1;
+            while (true)
+            {
+                current18 = 2 + 1.0 / prev18;
+                if (K18 > 1 && Math.Abs(current18 - prev18) < D18)
+                    break;
+                prev18 = current18;
+                K18++;
+            }
+            Console.WriteLine($"K: {K18}, A(K-1): {prev18}, A(K): {current18}");
+
+            // Задание 19
+            Console.Write("Задание 19: Введите вещественное число D (> 0): ");
+            double D19 = double.Parse(Console.ReadLine());
+            double prev2_19 = 1.0, prev1_19 = 2.0, current19 = 0.0;
+            int K19 = 2;
+            while (true)
+            {
+                current19 = (prev2_19 + prev1_19) / 2.0;
+                if (K19 > 2 && Math.Abs(current19 - prev1_19) < D19)
+                    break;
+                prev2_19 = prev1_19;
+                prev1_19 = current19;
+                K19++;
+            }
+            Console.WriteLine($"K: {K19}, A(K-1): {prev1_19}, A(K): {current19}");
+
+            // Задание 20
+            Console.Write("Задание 20: Введите целое N (>= 10): ");
+            int N20 = int.Parse(Console.ReadLine());
+            Console.Write("Нечётные кратные 5: ");
+            for (int i = 10; i <= N20; i++)
+            {
+                if (i % 5 == 0 && i % 2 != 0)
+                    Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 21
+            Console.Write("Задание 21: Квадраты чисел от 11 до 99:\n");
+            for (int i = 11; i <= 99; i++)
+            {
+                Console.WriteLine($"{i}^2 = {i * i}");
+            }
+
+            // Задание 22
+            Console.Write("Задание 22: Введите вещественные числа x (введите нечисловое значение для завершения):\n");
+            while (true)
+            {
+                Console.Write("x: ");
+                if (!double.TryParse(Console.ReadLine(), out double x22))
+                    break;
+                double r22;
+                if (0 < x22 && x22 < Math.PI)
+                    r22 = Math.Sin(x22);
+                else if (-Math.PI <= x22 && x22 < 0)
+                    r22 = Math.Pow(x22, 3);
+                else if (x22 < -2 * Math.PI || x22 > 2 * Math.PI)
+                    r22 = x22 * x22;
+                else
+                    r22 = 0;
+                Console.WriteLine($"r = {r22}");
+            }
+
+            // Задание 23
+            Console.Write("Задание 23: Введите целое n (> 0): ");
+            int n23 = int.Parse(Console.ReadLine());
+            double factorial23 = 1.0, power2_23 = 1.0;
+            for (int i = 1; i <= n23; i++)
+            {
+                factorial23 *= i;
+                power2_23 *= 2;
+            }
+            Console.WriteLine($"n!: {factorial23}, 2^n: {power2_23}");
+
+            // Задание 24
+            Console.Write("Задание 24: Введите целое N (>= 10): ");
+            int N24 = int.Parse(Console.ReadLine());
+            int maxDigit24 = 0;
+            for (int i = 10; i <= N24; i++)
+            {
+                int num = i;
+                while (num > 0)
+                {
+                    maxDigit24 = Math.Max(maxDigit24, num % 10);
+                    num /= 10;
+                }
+            }
+            Console.WriteLine($"Наибольшая цифра: {maxDigit24}");
+
+            // Задание 25
+            Console.Write("Задание 25: Введите целое N (>= 10): ");
+            int N25 = int.Parse(Console.ReadLine());
+            for (int i = 10; i <= N25; i++)
+            {
+                int num = i, sumDigits25 = 0, firstDigit25 = 0;
+                while (num > 0)
+                {
+                    sumDigits25 += num % 10;
+                    firstDigit25 = num % 10;
+                    num /= 10;
+                }
+                Console.WriteLine($"Число: {i}, Первая цифра: {firstDigit25}, Сумма цифр: {sumDigits25}");
+            }
+
+            // Задание 26
+            Console.Write("Задание 26: Введите целое N (>= 10): ");
+            int N26 = int.Parse(Console.ReadLine());
+            for (int i = 10; i <= N26; i++)
+            {
+                string s = i.ToString();
+                bool isPalindrome = s.SequenceEqual(s.Reverse());
+                if (isPalindrome)
+                    Console.WriteLine($"{i} — палиндром");
+            }
+
+            // Задание 27
+            Console.Write("Задание 27: Сумма квадратов от 12 до 80:\n");
+            long sumSquares27 = 0;
+            for (int i = 12; i <= 80; i++)
+            {
+                long square = (long)i * i;
+                sumSquares27 += square;
+                Console.WriteLine($"{i}^2 = {square}");
+            }
+            Console.WriteLine($"Общая сумма: {sumSquares27}");
+
+            // Задание 28
+            Console.Write("Задание 28: Разность квадратов от 22 до 88:\n");
+            long diffSquares28 = 0;
+            for (int i = 22; i <= 88; i++)
+            {
+                long square = (long)i * i;
+                diffSquares28 = (i == 22) ? square : diffSquares28 - square;
+                Console.WriteLine($"{i}^2 = {square}");
+            }
+            Console.WriteLine($"Общая разность: {diffSquares28}");
+
+            // Задание 29
+            Console.Write("Задание 29: Введите вещественное число A и целое N (> 0): ");
+            double A29 = double.Parse(Console.ReadLine());
+            int N29 = int.Parse(Console.ReadLine());
+            Console.Write("Разности квадратов: ");
+            for (int i = 1; i <= N29; i++)
+            {
+                double diff = A29 * A29 - i * i;
+                Console.Write(diff + " ");
+            }
+            Console.WriteLine();
+
+            // Задание 30
+            Console.Write("Задание 30: Введите целое N (>= 10): ");
+            int N30 = int.Parse(Console.ReadLine());
+            int minDigit30 = 9;
+            for (int i = 10; i <= N30; i++)
+            {
+                int num = i;
+                while (num > 0)
+                {
+                    minDigit30 = Math.Min(minDigit30, num % 10);
+                    num /= 10;
+                }
+            }
+            Console.WriteLine($"Наименьшая цифра: {minDigit30}");
+
+            Console.ReadKey();
+        }
+    }
+}
