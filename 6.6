@@ -1,0 +1,156 @@
+using System;
+
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Задание 1
+            Console.WriteLine("Задание 1: y = x^2 + sin(5x), x ∈ [0.1; 2.1]");
+            for (double x = 0.1; x <= 2.1; x += 0.1)
+            {
+                double y = x * x + Math.Sin(5 * x);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 2
+            Console.WriteLine("\nЗадание 2: y = x^2 - cos^3(πx), x ∈ [1; 3]");
+            for (double x = 1.0; x <= 3.0; x += 0.1)
+            {
+                double y = x * x - Math.Pow(Math.Cos(Math.PI * x), 3);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 3
+            Console.WriteLine("\nЗадание 3: y = 1.8x^3 - sin(10x), x ∈ [0.2; 2.2]");
+            for (double x = 0.2; x <= 2.2; x += 0.1)
+            {
+                double y = 1.8 * x * x * x - Math.Sin(10 * x);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 4
+            Console.WriteLine("\nЗадание 4: y = 2^x - 2x^2 - 1, x ∈ [2; 4]");
+            for (double x = 2.0; x <= 4.0; x += 0.1)
+            {
+                double y = Math.Pow(2, x) - 2 * x * x - 1;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 5
+            Console.WriteLine("\nЗадание 5: y = x^2 - cos^2(x + 1), x ∈ [0.1; 2.2]");
+            for (double x = 0.1; x <= 2.2; x += 0.1)
+            {
+                double y = x * x - Math.Pow(Math.Cos(x + 1), 2);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 6
+            Console.WriteLine("\nЗадание 6: y = x^3 - 4x^2 + 2, x ∈ [1; 3]");
+            for (double x = 1.0; x <= 3.0; x += 0.1)
+            {
+                double y = x * x * x - 4 * x * x + 2;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 7
+            Console.WriteLine("\nЗадание 7: y = x - 3cos^2(0.4x), x ∈ [0.15; 2.1]");
+            for (double x = 0.15; x <= 2.1; x += 0.1)
+            {
+                double y = x - 3 * Math.Pow(Math.Cos(0.4 * x), 2);
+                Console.WriteLine($"x = {x:F2}, y = {y:F4}");
+            }
+
+            // Задание 8
+            Console.WriteLine("\nЗадание 8: y = e^x - 2, x ∈ [0.1; 2.1]");
+            for (double x = 0.1; x <= 2.1; x += 0.1)
+            {
+                double y = Math.Exp(x) - 2;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 9
+            Console.WriteLine("\nЗадание 9: y = x^3 + 3x^2 - 3, x ∈ [2; 4]");
+            for (double x = 2.0; x <= 4.0; x += 0.1)
+            {
+                double y = x * x * x + 3 * x * x - 3;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 10
+            Console.WriteLine("\nЗадание 10: y = x^2 + 2π cos(πx), x ∈ [0.1; 2.5]");
+            for (double x = 0.1; x <= 2.5; x += 0.1)
+            {
+                double y = x * x + 2 * Math.PI * Math.Cos(Math.PI * x);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 11
+            Console.WriteLine("\nЗадание 11: y = 5x^3 + 2x^2 - 15x - 6, x ∈ [1.3; 3.4]");
+            for (double x = 1.3; x <= 3.4; x += 0.1)
+            {
+                double y = 5 * x * x * x + 2 * x * x - 15 * x - 6;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 12
+            Console.WriteLine("\nЗадание 12: y = lg(x) - (x - 2)^2, x ∈ [2; 4.1]");
+            for (double x = 2.0; x <= 4.1; x += 0.1)
+            {
+                double y = Math.Log10(x) - Math.Pow(x - 2, 2);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 13
+            Console.WriteLine("\nЗадание 13: y = √x - 2cos(0.5πx), x ∈ [0.1; 2.5]");
+            for (double x = 0.1; x <= 2.5; x += 0.1)
+            {
+                double y = Math.Sqrt(x) - 2 * Math.Cos(0.5 * Math.PI * x);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 14
+            Console.WriteLine("\nЗадание 14: y = x^2 - xπ cos(πx), x ∈ [0.1; 2.1]");
+            for (double x = 0.1; x <= 2.1; x += 0.1)
+            {
+                double y = x * x - x * Math.PI * Math.Cos(Math.PI * x);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 15
+            Console.WriteLine("\nЗадание 15: y = x^3 - 7x - 7, x ∈ [1; 3]");
+            for (double x = 1.0; x <= 3.0; x += 0.1)
+            {
+                double y = x * x * x - 7 * x - 7;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 16
+            Console.WriteLine("\nЗадание 16: y = x^3 - 4, x ∈ [0.1; 2.1]");
+            for (double x = 0.1; x <= 2.1; x += 0.1)
+            {
+                double y = x * x * x - 4;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 17
+            Console.WriteLine("\nЗадание 17: y = x^2 - sin(πx), x ∈ [0.1; 2.9]");
+            for (double x = 0.1; x <= 2.9; x += 0.1)
+            {
+                double y = x * x - Math.Sin(Math.PI * x);
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            // Задание 18
+            Console.WriteLine("\nЗадание 18: y = ln(x^2) - x + 4, x ∈ [1; 29]");
+            for (double x = 1.0; x <= 29.0; x += 0.5) // Увеличенный шаг из-за большого интервала
+            {
+                double y = Math.Log(x * x) - x + 4;
+                Console.WriteLine($"x = {x:F1}, y = {y:F4}");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
