@@ -1,1 +1,230 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Задание 1
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double W = 0;
+            for (int i = 2; i <= k; i++)
+                W += Math.Pow(-1, i) * Factorial(i + 3) / (2 * (i - 4));
+            Console.WriteLine($"W = {W}");
+
+            // Задание 2
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            double U = 1;
+            for (int i = 2; i <= k; i++)
+                U *= (x * Factorial(i - 12)) / (i - 6);
+            Console.WriteLine($"U = {U}");
+
+            // Задание 3
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            double S = 0;
+            for (int k = 1; k <= n; k++)
+                S += Math.Pow(-3, k + 1) * x / (2 * (k - 2) * Factorial(3 * k + 1));
+            Console.WriteLine($"S = {S}");
+
+            // Задание 4
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            double Q = 0;
+            for (int k = 2; k <= n; k++)
+                Q += Math.Pow(-1, k) * (k - 7) / (2 * n * Factorial(k));
+            Console.WriteLine($"Q = {Q}");
+         
+            // Задание 5
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            double W = 0;
+            for (int j = 1; j <= 9; j++)
+                W += (7 - x) * Factorial(j) / Math.Pow(j - 3, 5);
+
+            double prod = 1;
+            for (int m = 1; m <= 17; m++)
+                prod *= (Math.Pow(m, 3) - 8) / (m - 12);
+
+            W *= prod;
+            Console.WriteLine($"W = {W}");
+       
+            // Задание 6
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double W = 0;
+            for (int i = 1; i <= k; i++)
+                W += Math.Pow(-1, i) * Factorial(i + 3) / (i - 4);
+            Console.WriteLine($"W = {W}");
+          
+            // Задание 7
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            double Q = 0;
+            for (int i = 1; i <= n; i++)
+                Q += Math.Pow(-1, i) * (x + 3) / (2 * i * Factorial(i));
+            Console.WriteLine($"Q = {Q}");
+         
+            // Задание 8
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+
+            double P = 1;
+            for (int j = 1; j <= k; j++)
+                P *= (j - 2) * Factorial(j + 2) / ((j - 5) * (j - 7));
+            Console.WriteLine($"P = {P}");
+       
+            // Задание 9
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            double S = 0;
+            for (int k = 1; k <= n; k++)
+                S += Math.Pow(-1, k) * (Math.Pow(k, 3) - 27) / (3 * Factorial(k + 2));
+            Console.WriteLine($"S = {S}");
+    
+            // Задание 10
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double Z = 1;
+            for (int i = 1; i <= k; i++)
+                Z *= Math.Pow(-1, i) * Math.Pow(5, i) / (i - 11);
+            Console.WriteLine($"Z = {Z}");
+    
+            // Задание 11
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            double U = 1;
+            for (int i = 1; i <= k; i++)
+                U *= (x * Factorial(i - 2)) / (i - 1);
+            Console.WriteLine($"U = {U}");
+     
+            // Задание 12
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double A = 1;
+            for (int j = 1; j <= k; j++)
+                A *= (Math.Pow(j, 2) - 4) / (j + 1);
+            Console.WriteLine($"A = {A}");
+      
+            // Задание 13
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            double S = 0;
+            for (int k = 1; k <= n; k++)
+                S += (k + 3) * (k + 7) / Factorial(k);
+            Console.WriteLine($"S = {S}");
+ 
+            // Задание 14
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double Z = 1;
+            for (int i = 1; i <= k; i++)
+                Z *= Math.Pow(-1, i) * Math.Pow(i, 2) / (i - 1);
+            Console.WriteLine($"Z = {Z}");
+
+            // Задание 15
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            double S = 0;
+            for (int k = 1; k <= n; k++)
+                S += Math.Pow(-1, k) * Math.Pow(k, 2) / (k + 1);
+            Console.WriteLine($"S = {S}");
+ 
+            // Задание 16
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double Z = 1;
+            for (int n = 2; n <= k; n++)
+                Z *= (n + 2) * n - 4 / (n + 3);
+            Console.WriteLine($"Z = {Z}");
+ 
+            // Задание 17
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double W = 0;
+            for (int i = 1; i <= k; i++)
+                W += Math.Pow(-1, i) * Math.Pow(i, 3) / (i + 4);
+            Console.WriteLine($"W = {W}");
+
+            // Задание 18
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double P = 1;
+            for (int j = 1; j <= k; j++)
+                P *= (j - 2) * Factorial(j + 2) / ((j - 5) * (j - 7));
+            Console.WriteLine($"P = {P}");
+
+            // Задание 19
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            double S = 0;
+            for (int k = 1; k <= n; k++)
+                S += Math.Pow(-1, k) * (Math.Pow(k, 3) - 27) / (3 * Factorial(k + 2));
+            Console.WriteLine($"S = {S}");
+
+            // Задание 20
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double Z = 1;
+            for (int i = 1; i <= k; i++)
+                Z *= Math.Pow(-1, i) * Math.Pow(i, 5) / (i - 11);
+            Console.WriteLine($"Z = {Z}");
+
+            // Задание 21
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            double U = 1;
+            for (int i = 1; i <= k; i++)
+                U *= (x * Factorial(i - 2)) / (i - 1);
+            Console.WriteLine($"U = {U}");
+
+            // Задание 22
+            Console.Write("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            double A = 1;
+            for (int j = 1; j <= k; j++)
+                A *= (Math.Pow(j, 2) - 4) / (j + 1);
+            Console.WriteLine($"A = {A}");
+ 
+            // Задание 23
+            Console.Write("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            double S = 0;
+            for (int k = 1; k <= n; k++)
+                S += (k + 3) * (k + 7) / Factorial(k);
+            Console.WriteLine($"S = {S}");
+        }
+
+        static double Factorial(int n)
+        {
+            if (n < 0) return 1;
+            double f = 1;
+            for (int i = 2; i <= n; i++) f *= i;
+            return f;
+        }
+    }
+}
